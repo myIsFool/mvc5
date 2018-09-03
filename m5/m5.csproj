@@ -1,0 +1,808 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D758C848-3243-4788-91E9-235A2DCD1182}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>m5</RootNamespace>
+    <AssemblyName>m5</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="ServiceStack.Common, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.5.2.0\lib\net45\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.5.2.0\lib\net45\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Redis.5.2.0\lib\net45\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.5.2.0\lib\net45\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.5.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.5.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.5.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.5.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.5.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.5.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Index.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\act-1.jpg" />
+    <Content Include="Images\act-2.jpg" />
+    <Content Include="Images\act-3.jpg" />
+    <Content Include="Images\act-4.jpg" />
+    <Content Include="Images\act-bg.png" />
+    <Content Include="Images\alert_close_hig.png" />
+    <Content Include="Images\alert_close_nor.png" />
+    <Content Include="Images\Android-up.png" />
+    <Content Include="Images\Android_icon.png" />
+    <Content Include="Images\appdown_bg.png" />
+    <Content Include="Images\apple.png" />
+    <Content Include="Images\ba.png" />
+    <Content Include="Images\banner.jpg" />
+    <Content Include="Images\banner.png" />
+    <Content Include="Images\banner0249.jpg" />
+    <Content Include="Images\banner0326.jpg" />
+    <Content Include="Images\banner0402.jpg" />
+    <Content Include="Images\banner0404.jpg" />
+    <Content Include="Images\banner0411.jpg" />
+    <Content Include="Images\banner0620.png" />
+    <Content Include="Images\banner0703.jpg" />
+    <Content Include="Images\banner07031.png" />
+    <Content Include="Images\banner1.jpg" />
+    <Content Include="Images\banner11.jpg" />
+    <Content Include="Images\banner2.jpg" />
+    <Content Include="Images\banner20180202.jpg" />
+    <Content Include="Images\banner20180209.jpg" />
+    <Content Include="Images\banner3.jpg" />
+    <Content Include="Images\banner313.png" />
+    <Content Include="Images\banner316.png" />
+    <Content Include="Images\banner4.jpg" />
+    <Content Include="Images\banner5.jpg" />
+    <Content Include="Images\banner514.jpg" />
+    <Content Include="Images\banner521.jpg" />
+    <Content Include="Images\banner6.jpg" />
+    <Content Include="Images\banner7.png" />
+    <Content Include="Images\banner71.png" />
+    <Content Include="Images\banner8.jpg" />
+    <Content Include="Images\banner_0207.jpg" />
+    <Content Include="Images\banner_bg.png" />
+    <Content Include="Images\banner_hengfu_iamge.png" />
+    <Content Include="Images\banner_iamges.jpg" />
+    <Content Include="Images\bg.png" />
+    <Content Include="Images\bg_image.png" />
+    <Content Include="Images\bitbug_favicon.ico" />
+    <Content Include="Images\Bitmap1.png" />
+    <Content Include="Images\Bitmap2.png" />
+    <Content Include="Images\Bitmap3.png" />
+    <Content Include="Images\Bitmap5.png" />
+    <Content Include="Images\Bitmap6.png" />
+    <Content Include="Images\Bitmap7.png" />
+    <Content Include="Images\Bitmap8.png" />
+    <Content Include="Images\bm.jpg" />
+    <Content Include="Images\bmbg_image.png" />
+    <Content Include="Images\buhui_icon.png" />
+    <Content Include="Images\buqinxi_icon.png" />
+    <Content Include="Images\button_hight_bg.png" />
+    <Content Include="Images\button_nor_bg.png" />
+    <Content Include="Images\caohong.png" />
+    <Content Include="Images\chakan_icon4.png" />
+    <Content Include="Images\chakan_icon4_highlight.png" />
+    <Content Include="Images\chekbok_highlight%281%29.png" />
+    <Content Include="Images\chekbok_highlight.png" />
+    <Content Include="Images\chekbok_normal%281%29.png" />
+    <Content Include="Images\chekbok_normal.png" />
+    <Content Include="Images\chenfeng.png" />
+    <Content Include="Images\chengfeng.png" />
+    <Content Include="Images\ckbg.png" />
+    <Content Include="Images\cuoti.png" />
+    <Content Include="Images\cuoti1.png" />
+    <Content Include="Images\cuoti3.png" />
+    <Content Include="Images\cuotirenwu_icon.png" />
+    <Content Include="Images\cuoti_hig.png" />
+    <Content Include="Images\cuoti_icon.png" />
+    <Content Include="Images\cuoti_nor.png" />
+    <Content Include="Images\cuowu_icon.png" />
+    <Content Include="Images\d.jpeg" />
+    <Content Include="Images\danx_icon_hig.png" />
+    <Content Include="Images\danx_nor.png" />
+    <Content Include="Images\datiye_jiao_icon.png" />
+    <Content Include="Images\datiye_jiexi_biaoq_close.png" />
+    <Content Include="Images\datiye_jiexi_cuoti_hig.png" />
+    <Content Include="Images\datiye_jiexi_cuoti_nor.png" />
+    <Content Include="Images\datiye_jiexi_cuo_icon.png" />
+    <Content Include="Images\datiye_jiexi_dui_icon.png" />
+    <Content Include="Images\datiye_jncuoti_hig.png" />
+    <Content Include="Images\datiye_jncuoti_nor.png" />
+    <Content Include="Images\datiye_kjkemu_icon_hig.png" />
+    <Content Include="Images\datiye_kjkemu_icon_nor.png" />
+    <Content Include="Images\datiye_sctiaomu_icon_hig.png" />
+    <Content Include="Images\datiye_sctiaomu_icon_nor.png" />
+    <Content Include="Images\datiye_timu_bg.png" />
+    <Content Include="Images\datiye_zjtiaomu_icon_hig.png" />
+    <Content Include="Images\datiye_zjtiaomu_icon_nor.png" />
+    <Content Include="Images\dati_nav_bf_hig.png" />
+    <Content Include="Images\dati_nav_bf_nor.png" />
+    <Content Include="Images\dati_nav_datika_hig.png" />
+    <Content Include="Images\dati_nav_datika_nor.png" />
+    <Content Include="Images\dati_nav_jiaojun_hig.png" />
+    <Content Include="Images\dati_nav_jiaojun_nor.png" />
+    <Content Include="Images\dati_nav_jishuanqi_hig.png" />
+    <Content Include="Images\dati_nav_jishuanqi_nor.png" />
+    <Content Include="Images\dati_nav_qieti_hig_icon.png" />
+    <Content Include="Images\dati_nav_qieti_nor_icon.png" />
+    <Content Include="Images\dati_nav_shangyiti_hig.png" />
+    <Content Include="Images\dati_nav_shangyiti_nor.png" />
+    <Content Include="Images\dati_nav_shij_icon.png" />
+    <Content Include="Images\dati_nav_xiayiti_hig.png" />
+    <Content Include="Images\dati_nav_xiayiti_nor.png" />
+    <Content Include="Images\dati_nav_zt_nor.png" />
+    <Content Include="Images\default.png" />
+    <Content Include="Images\diandan_kong_icon.png" />
+    <Content Include="Images\down_icon.png" />
+    <Content Include="Images\duox_nor.png" />
+    <Content Include="Images\er_icon1.png" />
+    <Content Include="Images\er_icon2.png" />
+    <Content Include="Images\er_icon3.png" />
+    <Content Include="Images\er_icon4.png" />
+    <Content Include="Images\fanfa2.png" />
+    <Content Include="Images\faxian_shiyong_icon.png" />
+    <Content Include="Images\faxian_shiyong_icon_hig.png" />
+    <Content Include="Images\fontset_da_hig.png" />
+    <Content Include="Images\fontset_da_nor.png" />
+    <Content Include="Images\fontset_hig.png" />
+    <Content Include="Images\fontset_nor.png" />
+    <Content Include="Images\fontset_xiao_hig.png" />
+    <Content Include="Images\fontset_xiao_nor.png" />
+    <Content Include="Images\fontset_zhong_hig.png" />
+    <Content Include="Images\fontset_zhong_nor.png" />
+    <Content Include="Images\free_icon.png" />
+    <Content Include="Images\good.png" />
+    <Content Include="Images\gou.png" />
+    <Content Include="Images\gouwuce_del_nig.png" />
+    <Content Include="Images\gouwuce_del_nor.png" />
+    <Content Include="Images\gouwuce_kong%402x.png" />
+    <Content Include="Images\gouwuce_kong%403x.png" />
+    <Content Include="Images\gouwuce_kong.png" />
+    <Content Include="Images\gray-bg.png" />
+    <Content Include="Images\Group 10.png" />
+    <Content Include="Images\guangbi_iocn9.png" />
+    <Content Include="Images\huodong.png" />
+    <Content Include="Images\huodong_chujikuaiji_iamge.png" />
+    <Content Include="Images\huodong_jinjifa_image.png" />
+    <Content Include="Images\image_nor.png" />
+    <Content Include="Images\iOS.png" />
+    <Content Include="Images\iphone.png" />
+    <Content Include="Images\jieguo_bianjiao.png" />
+    <Content Include="Images\jieguo_button_jinlu_hig.png" />
+    <Content Include="Images\jieguo_button_jinlu_nor.png" />
+    <Content Include="Images\jieguo_button_lfte.png" />
+    <Content Include="Images\jieguo_chenji_bg.png" />
+    <Content Include="Images\jieguo_qqhy_hig.png" />
+    <Content Include="Images\jieguo_qqhy_nor.png" />
+    <Content Include="Images\jieguo_qqkongj_hig.png" />
+    <Content Include="Images\jieguo_qqkongj_nor.png" />
+    <Content Include="Images\jieguo_renwuwc_icon9.png" />
+    <Content Include="Images\jieguo_renwuweiwc_icon.png" />
+    <Content Include="Images\jieguo_tudian_icon.png" />
+    <Content Include="Images\jieshuanye_chifubao_icon.png" />
+    <Content Include="Images\jieshuanye_xianjing_icon.png" />
+    <Content Include="Images\jieshuan_jyouhui_jia_icon.png" />
+    <Content Include="Images\jieshuan_shibai_icon.png" />
+    <Content Include="Images\jieshuan_youhui_xunzhe_dan_hig.png" />
+    <Content Include="Images\jieshuan_youhui_xunzhe_dan_nor.png" />
+    <Content Include="Images\jiexi_bj_icon.png" />
+    <Content Include="Images\jiexi_del_hig_icon.png" />
+    <Content Include="Images\jiexi_del_nor_icon.png" />
+    <Content Include="Images\jiexi_jiaru_hig_icon.png" />
+    <Content Include="Images\jiexi_jiaru_nor_icon.png" />
+    <Content Include="Images\jie_icon.png" />
+    <Content Include="Images\jinxun_1.png" />
+    <Content Include="Images\kefu.png" />
+    <Content Include="Images\kuaijie_bg.png" />
+    <Content Include="Images\kuang_01.png" />
+    <Content Include="Images\kuang_02.png" />
+    <Content Include="Images\left_button_hig.png" />
+    <Content Include="Images\left_button_nor.png" />
+    <Content Include="Images\lichanchan.png" />
+    <Content Include="Images\lijinxian.png" />
+    <Content Include="Images\like.jpg" />
+    <Content Include="Images\lineback_03.png" />
+    <Content Include="Images\line_01.png" />
+    <Content Include="Images\line_02.png" />
+    <Content Include="Images\line_03.png" />
+    <Content Include="Images\lingxi_ditu.png" />
+    <Content Include="Images\lishenshen.png" />
+    <Content Include="Images\lishi_icon.png" />
+    <Content Include="Images\liuzhenzhen.png" />
+    <Content Include="Images\lizheng.png" />
+    <Content Include="Images\lizheng_photo.png" />
+    <Content Include="Images\load1.png" />
+    <Content Include="Images\load2.png" />
+    <Content Include="Images\load3.png" />
+    <Content Include="Images\loadcode.png" />
+    <Content Include="Images\login-tudian-icon2.png" />
+    <Content Include="Images\loginbanner.png" />
+    <Content Include="Images\login_biaoti.png" />
+    <Content Include="Images\login_home_icon.png" />
+    <Content Include="Images\login_logo.png" />
+    <Content Include="Images\login_password.png" />
+    <Content Include="Images\login_qq_icon.png" />
+    <Content Include="Images\login_qq_icon_highlight.png" />
+    <Content Include="Images\login_slong.png" />
+    <Content Include="Images\login_tuan.png" />
+    <Content Include="Images\login_tuan_k.png" />
+    <Content Include="Images\login_tuan_z.png" />
+    <Content Include="Images\login_tudian_icon.png" />
+    <Content Include="Images\login_user.png" />
+    <Content Include="Images\login_zhuce_icon_highlight.png" />
+    <Content Include="Images\login_zhuce_icon_noraml.png" />
+    <Content Include="Images\longsuo_1.png" />
+    <Content Include="Images\lrenwuwanc_icon.png" />
+    <Content Include="Images\medal2.png" />
+    <Content Include="Images\moneyBag.jpg" />
+    <Content Include="Images\naozhong_icon.png" />
+    <Content Include="Images\nav\nav_meun_danan_highligth.png" />
+    <Content Include="Images\nav\nav_meun_danan_normal.png" />
+    <Content Include="Images\nav\nav_meun_dindan_highligth.png" />
+    <Content Include="Images\nav\nav_meun_dindan_normal.png" />
+    <Content Include="Images\nav\nav_meun_exit_highligth.png" />
+    <Content Include="Images\nav\nav_meun_exit_normal.png" />
+    <Content Include="Images\nav\nav_meun_set_highlight.png" />
+    <Content Include="Images\nav\nav_meun_set_normal.png" />
+    <Content Include="Images\nav\nav_meun_zhanhu_highligth.png" />
+    <Content Include="Images\nav\right_nav_kefu_hig.png" />
+    <Content Include="Images\nav\right_nav_kefu_nor.png" />
+    <Content Include="Images\nav\right_nav_top_hig.png" />
+    <Content Include="Images\nav\right_nav_top_nor.png" />
+    <Content Include="Images\nav\right_nav_weixin_hig.png" />
+    <Content Include="Images\nav\right_nav_weixin_nor.png" />
+    <Content Include="Images\nav\right_nav_yijian_hig.png" />
+    <Content Include="Images\nav\right_nav_yijian_nor.png" />
+    <Content Include="Images\nav\zhanhu_toux_icon.png" />
+    <Content Include="Images\nav\zhanhu_toux_icon_highlight.png" />
+    <Content Include="Images\nav_list_youhuij_icon_hig.png" />
+    <Content Include="Images\nav_meun_danan_highligth.png" />
+    <Content Include="Images\nav_meun_danan_normal.png" />
+    <Content Include="Images\nav_meun_dindan_highligth.png" />
+    <Content Include="Images\nav_meun_dindan_normal.png" />
+    <Content Include="Images\nav_meun_exit_highligth.png" />
+    <Content Include="Images\nav_meun_exit_normal.png" />
+    <Content Include="Images\nav_meun_set_highlight.png" />
+    <Content Include="Images\nav_meun_set_normal.png" />
+    <Content Include="Images\nav_meun_zhanhu_highligth.png" />
+    <Content Include="Images\nav_shou_icon.png" />
+    <Content Include="Images\ok_icon.png" />
+    <Content Include="Images\p-1_02.png" />
+    <Content Include="Images\p1.png" />
+    <Content Include="Images\p1_01%281%29.png" />
+    <Content Include="Images\p1_01.png" />
+    <Content Include="Images\qbwc_icon.png" />
+    <Content Include="Images\qita.png" />
+    <Content Include="Images\qqkongj_hight_icon.png" />
+    <Content Include="Images\qqkongj_icon.png" />
+    <Content Include="Images\quan_icon.png" />
+    <Content Include="Images\qunbu_button_hig.png" />
+    <Content Include="Images\qunbu_button_nor.png" />
+    <Content Include="Images\quxiaoshouc_icon.png" />
+    <Content Include="Images\RecommendCourse.png" />
+    <Content Include="Images\red-bg.jpg" />
+    <Content Include="Images\renwbgt.png" />
+    <Content Include="Images\renwujinxin.png" />
+    <Content Include="Images\renwuliebiao_danqian.png" />
+    <Content Include="Images\renwuliebiao_shouqi_icon.png" />
+    <Content Include="Images\renwuliebiao_wanchan_icon.png" />
+    <Content Include="Images\renwuliebiao_weizuo_icon.png" />
+    <Content Include="Images\renwuliebiao_zhankai_icon.png" />
+    <Content Include="Images\renwulist_lishi_icon.png" />
+    <Content Include="Images\renwulist_wanch_con.png" />
+    <Content Include="Images\renwuwadnc_icon.png" />
+    <Content Include="Images\renwuwanc_icon.png" />
+    <Content Include="Images\renwuwanc_icon1.png" />
+    <Content Include="Images\renwuzj_xueba_icon.png" />
+    <Content Include="Images\renwu_icon.png" />
+    <Content Include="Images\renwu_icon1.png" />
+    <Content Include="Images\renwu_list_cuoti_icon.png" />
+    <Content Include="Images\renwu_list_cuoti_icon_high.png" />
+    <Content Include="Images\renwu_list_free2_icon.png" />
+    <Content Include="Images\renwu_list_qinbi_dis.png" />
+    <Content Include="Images\renwu_list_qinbi_high.png" />
+    <Content Include="Images\renwu_list_shijun_icon_dis.png" />
+    <Content Include="Images\renwu_list_shijun_icon_high.png" />
+    <Content Include="Images\renwu_list_vidoe_dis.png" />
+    <Content Include="Images\renwu_list_vidoe_high.png" />
+    <Content Include="Images\renwu_tongji_jieduan_icon.png" />
+    <Content Include="Images\renwu_weiwanc_icon.png" />
+    <Content Include="Images\rewu_list_suo_icon.png" />
+    <Content Include="Images\right-nav-kefu-hig.png" />
+    <Content Include="Images\right-nav-kefu-nor.png" />
+    <Content Include="Images\right_button_hig.png" />
+    <Content Include="Images\right_button_nor.png" />
+    <Content Include="Images\right_nav_kefu_hig.png" />
+    <Content Include="Images\right_nav_kefu_nor.png" />
+    <Content Include="Images\right_nav_top_hig.png" />
+    <Content Include="Images\right_nav_top_nor.png" />
+    <Content Include="Images\right_nav_weixin_hig.png" />
+    <Content Include="Images\right_nav_weixin_nor.png" />
+    <Content Include="Images\right_nav_yijian_hig.png" />
+    <Content Include="Images\right_nav_yijian_nor.png" />
+    <Content Include="Images\rili_bg.png" />
+    <Content Include="Images\ronyu_down_hig.png" />
+    <Content Include="Images\ronyu_down_nor.png" />
+    <Content Include="Images\ronyu_up_hig.png" />
+    <Content Include="Images\ronyu_up_nor.png" />
+    <Content Include="Images\san_icon1.png" />
+    <Content Include="Images\san_icon2.png" />
+    <Content Include="Images\san_icon3.png" />
+    <Content Include="Images\san_icon4.png" />
+    <Content Include="Images\san_icon5.png" />
+    <Content Include="Images\screenShot.jpg" />
+    <Content Include="Images\sde.png" />
+    <Content Include="Images\set_icon.png" />
+    <Content Include="Images\shijfenx_icon.png" />
+    <Content Include="Images\shijun_icon.png" />
+    <Content Include="Images\shijun_icon_dis.png" />
+    <Content Include="Images\shipin_icon.png" />
+    <Content Include="Images\shipin_icon_dis.png" />
+    <Content Include="Images\shitian-icon.png" />
+    <Content Include="Images\shiyong-icon.png" />
+    <Content Include="Images\shoucan_hig.png" />
+    <Content Include="Images\shoucan_icon.png" />
+    <Content Include="Images\shoucan_icon_bai.png" />
+    <Content Include="Images\shoucan_nor.png" />
+    <Content Include="Images\shouqicailiao_icon.png" />
+    <Content Include="Images\shouqijiexi_icon.png" />
+    <Content Include="Images\shouqi_icon.png" />
+    <Content Include="Images\shouqi_icon_hig.png" />
+    <Content Include="Images\shouye_zhixun_dongtai_icon.png" />
+    <Content Include="Images\shouye_zhixun_fuxi_icon.png" />
+    <Content Include="Images\shouye_zhixun_jinyin_icon.png" />
+    <Content Include="Images\shouye_zhixun_left_icon.png" />
+    <Content Include="Images\shouye_zhixun_remeng_icon.png" />
+    <Content Include="Images\shouye_zhixun_right_icon.png" />
+    <Content Include="Images\shouye_zhixun_ze_icon.png" />
+    <Content Include="Images\shouye_zhixun_zhinan_icon.png" />
+    <Content Include="Images\shuji_image.png" />
+    <Content Include="Images\suo-icon copy 14.png" />
+    <Content Include="Images\taijz_icon.png" />
+    <Content Include="Images\timu_icon.png" />
+    <Content Include="Images\timu_icon_dis.png" />
+    <Content Include="Images\tishi_colse_icon.png" />
+    <Content Include="Images\tishi_icon.png" />
+    <Content Include="Images\tixin_bg.png" />
+    <Content Include="Images\tongguan_3.png" />
+    <Content Include="Images\tongjitu.png" />
+    <Content Include="Images\top_icon.png" />
+    <Content Include="Images\tuijian_image.png" />
+    <Content Include="Images\tuij_image.png" />
+    <Content Include="Images\umony.png" />
+    <Content Include="Images\up_icon.png" />
+    <Content Include="Images\usecent_lqyouhui_bkel_bg.png" />
+    <Content Include="Images\usecent_lqyouhui_kel_bg.png" />
+    <Content Include="Images\usecent_youhuijun_dijia_wenli.png" />
+    <Content Include="Images\usecent_youhuijun_hig_icon.png" />
+    <Content Include="Images\usecent_youhuijun_nor.png" />
+    <Content Include="Images\usecent_youhuijun_nor_icon.png" />
+    <Content Include="Images\usecent_youhui_bg.png" />
+    <Content Include="Images\usecent_youhui_kong.png" />
+    <Content Include="Images\usecent_youhui_nig.png" />
+    <Content Include="Images\user 2\datiye%281%29\datiye\shipinrenwu_wanc_icon.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._dati_nav_bf_hig.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._dati_nav_bf_nor.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._dati_nav_datika_hig.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._dati_nav_datika_nor.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._dati_nav_jiaojun_hig.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._dati_nav_jiaojun_nor.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._dati_nav_jishuanqi_hig.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._dati_nav_jishuanqi_nor.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._dati_nav_shangyiti_hig.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._dati_nav_shangyiti_nor.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._dati_nav_shij_icon.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._dati_nav_xiayiti_hig.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._dati_nav_xiayiti_nor.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._dati_nav_zt_nor.png" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._shipinrenwu_wanc_icon.png" />
+    <Content Include="Images\user 2\user\usercent_danan_icon.png" />
+    <Content Include="Images\user 2\user\usercent_danan_icon_highligth.png" />
+    <Content Include="Images\user 2\user\usercent_dindan_highligth.png" />
+    <Content Include="Images\user 2\user\usercent_dindan_icon.png" />
+    <Content Include="Images\user 2\user\usercent_set_icon.png" />
+    <Content Include="Images\user 2\user\usercent_set_icon_higlight.png" />
+    <Content Include="Images\user 2\user\usercent_user_icon.png" />
+    <Content Include="Images\user 2\user\usercent_zhanhu_icon.png" />
+    <Content Include="Images\user 2\user\usercent_zhanhu_icon_highligth.png" />
+    <Content Include="Images\user 2\user\user_rili_icon.png" />
+    <Content Include="Images\user 2\user\user_tudian_icon.png" />
+    <Content Include="Images\user 2\user\user_xulibi_icon.png" />
+    <Content Include="Images\user 2\user\user_zhanhu_toux_icon.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_danan_icon.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_danan_icon_highligth.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_dindan_highligth.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_dindan_icon.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_gerenset_hig.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_gerenset_nor.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_phone_hig.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_phone_nor.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_save_hig.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_save_nor.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_set_icon.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_set_icon_higlight.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_user_icon.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_zhanhu_icon.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._usercent_zhanhu_icon_highligth.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._user_rili_icon.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._user_tudian_icon.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._user_xulibi_icon.png" />
+    <Content Include="Images\user 2\__MACOSX\user\._user_zhanhu_toux_icon.png" />
+    <Content Include="Images\usercent_danan_icon.png" />
+    <Content Include="Images\usercent_danan_icon_highligth.png" />
+    <Content Include="Images\usercent_dindan_highligth.png" />
+    <Content Include="Images\usercent_dindan_icon.png" />
+    <Content Include="Images\usercent_gerenset_hig.png" />
+    <Content Include="Images\usercent_gerenset_nor.png" />
+    <Content Include="Images\usercent_phone_hig.png" />
+    <Content Include="Images\usercent_phone_nor.png" />
+    <Content Include="Images\usercent_save_hig.png" />
+    <Content Include="Images\usercent_save_nor.png" />
+    <Content Include="Images\usercent_set_icon.png" />
+    <Content Include="Images\usercent_set_icon_higlight.png" />
+    <Content Include="Images\usercent_user_icon.png" />
+    <Content Include="Images\usercent_zhanhu_icon.png" />
+    <Content Include="Images\usercent_zhanhu_icon_highligth.png" />
+    <Content Include="Images\user\usercent_danan_icon.png" />
+    <Content Include="Images\user\usercent_danan_icon_highligth.png" />
+    <Content Include="Images\user\usercent_dindan_highligth.png" />
+    <Content Include="Images\user\usercent_dindan_icon.png" />
+    <Content Include="Images\user\usercent_set_icon.png" />
+    <Content Include="Images\user\usercent_set_icon_higlight.png" />
+    <Content Include="Images\user\usercent_user_icon.png" />
+    <Content Include="Images\user\usercent_zhanhu_icon.png" />
+    <Content Include="Images\user\usercent_zhanhu_icon_highligth.png" />
+    <Content Include="Images\user\user_rili_icon.png" />
+    <Content Include="Images\user\user_tudian_icon.png" />
+    <Content Include="Images\user\user_xulibi_icon.png" />
+    <Content Include="Images\user\user_zhanhu_toux_icon.png" />
+    <Content Include="Images\user_rili_icon.png" />
+    <Content Include="Images\user_tudian_icon.png" />
+    <Content Include="Images\user_xulibi_icon.png" />
+    <Content Include="Images\user_zhanhu_toux_icon.png" />
+    <Content Include="Images\wanch-icon copy 4.png" />
+    <Content Include="Images\wanchen_icon.png" />
+    <Content Include="Images\wanyufeng.png" />
+    <Content Include="Images\weibo_hitghticon.png" />
+    <Content Include="Images\weibo_icon.png" />
+    <Content Include="Images\weikanqintimu.png" />
+    <Content Include="Images\weixin.jpg" />
+    <Content Include="Images\weixin_arrow.png" />
+    <Content Include="Images\weixin_hd.jpg" />
+    <Content Include="Images\weixin_hight_icon.png" />
+    <Content Include="Images\weixin_icon.png" />
+    <Content Include="Images\weixin_image.png" />
+    <Content Include="Images\weixin_sm_iamge.png" />
+    <Content Include="Images\wenli_xuexi.png" />
+    <Content Include="Images\wx7.png" />
+    <Content Include="Images\xianqinye_gouwu_icon.png" />
+    <Content Include="Images\xianqi_icon.png" />
+    <Content Include="Images\xiaoxi_kong_icon.png" />
+    <Content Include="Images\xiazaiKongicon.png" />
+    <Content Include="Images\xiazai_iamges.jpg" />
+    <Content Include="Images\xq_iamge.png" />
+    <Content Include="Images\xq_iamge1.png" />
+    <Content Include="Images\xuexi_del.png" />
+    <Content Include="Images\xuexi_guoqi_icon.png" />
+    <Content Include="Images\xuexi_mulu_bg_nor.png" />
+    <Content Include="Images\xuexi_mu_bg_hig.png" />
+    <Content Include="Images\xuexi_renwu_chuobiao_icon.png" />
+    <Content Include="Images\xuexi_renwu_qiaobiao_mingfei.png" />
+    <Content Include="Images\xuexi_renwu_suo_icon.png" />
+    <Content Include="Images\xuexi_renwu_tongji_hig.png" />
+    <Content Include="Images\xuexi_renwu_tongji_nor.png" />
+    <Content Include="Images\xuexi_renwu_wanch_icon.png" />
+    <Content Include="Images\xuexi_renwu_xuhao_hig.png" />
+    <Content Include="Images\xuexi_renwu_xuhao_nor.png" />
+    <Content Include="Images\xuexi_shiyong_icon.png" />
+    <Content Include="Images\yi.png" />
+    <Content Include="Images\yichu_icon.png" />
+    <Content Include="Images\yichu_icon_hig_1.png" />
+    <Content Include="Images\yinchan_icon4.png" />
+    <Content Include="Images\yinchan_icon4_highlight.png" />
+    <Content Include="Images\yinghai_photo.png" />
+    <Content Include="Images\yinhai.png" />
+    <Content Include="Images\yiwanchen_icon.png" />
+    <Content Include="Images\yi_icon1.png" />
+    <Content Include="Images\yi_icon2.png" />
+    <Content Include="Images\yi_icon3.png" />
+    <Content Include="Images\youhuijun_del_hig.png" />
+    <Content Include="Images\youhuijun_del_nor.png" />
+    <Content Include="Images\youhui_ming_icon.png" />
+    <Content Include="Images\youhui_qun_icon.png" />
+    <Content Include="Images\youhui_xian_icon.png" />
+    <Content Include="Images\ysspng.png" />
+    <Content Include="Images\yuanshasha.png" />
+    <Content Include="Images\yuohui_jian_icon.png" />
+    <Content Include="Images\yz_button.png" />
+    <Content Include="Images\yz_button_wc.png" />
+    <Content Include="Images\zaixian_2.png" />
+    <Content Include="Images\zf_cg_icon.png" />
+    <Content Include="Images\zhanchendong.png" />
+    <Content Include="Images\zhanhu_kong_icon.png" />
+    <Content Include="Images\zhanhu_toux_icon.png" />
+    <Content Include="Images\zhanhu_toux_icon_highlight.png" />
+    <Content Include="Images\zhankaicailiao_icon.png" />
+    <Content Include="Images\zhankaijiexi_icon.png" />
+    <Content Include="Images\zhankai_icon.png" />
+    <Content Include="Images\zhankai_icon_hig copy.png" />
+    <Content Include="Images\zhedie1.png" />
+    <Content Include="Images\zhedie2.png" />
+    <Content Include="Images\zhenque_cion.png" />
+    <Content Include="Images\zhuce_buzhou_wancheng_icon.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\user 2.zip" />
+    <Content Include="Images\user 2\datiye%281%29.zip" />
+    <Content Include="Images\user 2\datiye%281%29\datiye\.DS_Store" />
+    <Content Include="Images\user 2\datiye%281%29\__MACOSX\datiye\._.DS_Store" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\m5.Bll\m5.Bll.csproj">
+      <Project>{e9d2a75c-c2f2-488d-b358-d634a7719342}</Project>
+      <Name>m5.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{4e875674-527c-45b2-a2b4-3e0353d7319d}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52259</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52259/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

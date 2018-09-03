@@ -1,0 +1,48 @@
+﻿@media(max-width: 1300px) {
+    .container {
+        width: 100%;
+    }
+    .body-content {
+        padding: 0px;
+    }
+}
+.consultBlack {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+.consult {
+    display: block;
+    height: 100px;
+    padding: 10px;
+}
+    .consult>a {
+        display: block;
+        color: #777;
+        margin-top: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        margin-left: 10px;
+        font-size: 15px;
+    }
+        .consult > a > span {
+            color: #777;
+            margin-right: 10px;
+            float: left;
+            padding-top: 3px;
+        }
+        .consult > a:hover {
+            color: #38c860;
+        }
+            .consult > a:hover>span {
+                color: #38c860;
+            }
+            .consult1 {
+                background: url('../images/shouye_zhixun_jinyin_icon.png') no-repeat center right;
+            }
+.consult2 {
+    background: url('../images/shouye_zhixun_fuxi_icon.png') no-repeat center right;
+}
+.consult3 {
+    background: url('../images/shouye_zhixun_dongtai_icon.png') no-repeat center right;
+}
